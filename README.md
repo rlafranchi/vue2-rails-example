@@ -1,24 +1,43 @@
-# README
+# vue2-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> A Vue.js Project Using Vue 2 and Rails 5
 
-Things you may want to cover:
+## A Vue Webpack template forked from vuejs-templates/webpack
 
-* Ruby version
+This template is intended for use with the Rails framework.  It is inteded to separate client and server and with Rails projects initialized using the --api flag.
 
-* System dependencies
+Simply setup a new rails project
 
-* Configuration
+```bash
+rails new vue-rails --api
+```
+Make sure you have vue-cli installed and run the following using the same project name
 
-* Database creation
+```bash
+vue init rlafranchi/webpack vue-rails
+```
 
-* Database initialization
+## Build Setup
 
-* How to run the test suite
+``` bash
+cd vue-rails
+# install dependencies
+npm install
 
-* Services (job queues, cache servers, search engines, etc.)
+# serve with hot reload at localhost:8080
+npm run dev
 
-* Deployment instructions
+# build for production with minification
+npm run build
 
-* ...
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
