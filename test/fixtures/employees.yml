@@ -1,0 +1,4 @@
+alice:
+  name: Alice
+  email: alice@example.com
+  manager: false
