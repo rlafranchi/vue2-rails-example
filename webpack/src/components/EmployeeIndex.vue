@@ -16,6 +16,23 @@
           v-bind:key="employee.id"
           v-for="employee in employees">
         </employee>
+        <tr>
+          <td>
+            <!-- Input -->
+            <input type="text" v-model="employee.name"><br>
+            <!-- Validation errors -->
+            <span style="color:red">{{ errors.name ? errors.name.join(', ') : '' }}</span>
+          </td>
+          <td>
+            <!-- Input -->
+            <input type="text" v-model="employee.email"><br>
+            <!-- Validation errors -->
+            <span style="color:red">{{ errors.email ? errors.email.join(', ') : '' }}</span>
+          </td>
+          <td><input type="checkbox" v-model="employee.manager"></td>
+          <!-- button click calls hireEmployee -->
+          <td><button @click="hireEmployee">Hire</button></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -29,7 +46,13 @@ export default {
   name: 'employee-index',
   data () {
     return {
-      employees: []
+      employees: [],
+      employee: {
+        name: '',
+        email: '',
+        manager: false
+      },
+      errors: {}
     }
   },
   mounted () {
@@ -42,6 +65,17 @@ export default {
         .then((res) => {
           that.employees = res.data
         })
+    },
+    hireEmployee () {
+      var that = this
+      axios.post(process.env.RAILS_URL + '/api/employees', {
+        employee: that.employee
+      }).then((res) => {
+        that.errors = {}
+        that.employees.push(res.data)
+      }).catch((error) => {
+        that.errors = error.response.data.errors
+      })
     }
   },
   components: {
@@ -50,7 +84,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
@@ -58,5 +91,6 @@ h1, h2 {
 
 table {
   margin: 0 auto;
+  text-align: left;
 }
 </style>
