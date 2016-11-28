@@ -11,11 +11,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="employee in employees">
-          <td>{{ employee.name }}</td>
-          <td>{{ employee.email }}</td>
-          <td>{{ employee.manager }}</td>
-        </tr>
+        <employee
+          :employee="employee"
+          v-bind:key="employee.id"
+          v-for="employee in employees">
+        </employee>
       </tbody>
     </table>
   </div>
@@ -23,6 +23,7 @@
 
 <script>
 import axios from 'axios'
+import Employee from 'components/Employee'
 
 export default {
   name: 'employee-index',
@@ -31,12 +32,20 @@ export default {
       employees: []
     }
   },
-  beforeCreate () {
-    var that = this
-    axios.get(process.env.RAILS_URL + '/api/employees')
-      .then((res) => {
-        that.employees = res.data
-      })
+  mounted () {
+    this.fetchEmployees()
+  },
+  methods: {
+    fetchEmployees () {
+      var that = this
+      axios.get(process.env.RAILS_URL + '/api/employees')
+        .then((res) => {
+          that.employees = res.data
+        })
+    }
+  },
+  components: {
+    Employee
   }
 }
 </script>
