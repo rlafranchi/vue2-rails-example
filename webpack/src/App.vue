@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <a href="https://http://rubyonrails.org/" target="_blank" title="Rails">
+      <img src="./assets/vue.png" height="50"/>
+    </a>
+    <a href="https://vuejs.org" target="_blank" title="Vue">
+      <img src="./assets/rails.svg" height="50"/>
+    </a>
+    <employee-index></employee-index>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import EmployeeIndex from './components/EmployeeIndex'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    EmployeeIndex
   }
 }
 </script>
@@ -24,5 +29,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 100%;
 }
 </style>
