@@ -27,9 +27,7 @@
     "vue-template-compiler": "^2.1.0",
     "shelljs": "^0.7.4",
     "webpack": "^1.13.2",
-    "webpack-merge": "^0.14.1"
-  },
-  "devDependencies": {
+    "webpack-merge": "^0.14.1",
     "es6-promise": "^4.0.5",
     "eslint-plugin-promise": "^2.0.1",
     "axios-mock-adapter": "^1.7.1",
