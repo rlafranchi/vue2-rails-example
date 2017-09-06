@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <a href="https://vuejs.org" target="_blank" title="Rails">
+    <a href="https://vuejs.org" target="_blank" title="Vue">
       <img src="./assets/vue.png" height="50"/>
     </a>
-    <a href="http://rubyonrails.org" target="_blank" title="Vue">
+    <a href="http://rubyonrails.org" target="_blank" title="Rails">
       <img src="./assets/rails.svg" height="50"/>
     </a>
     <employee-index></employee-index>
